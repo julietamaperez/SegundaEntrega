@@ -4,7 +4,7 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
-    const [producto, setProductos] = useState (null);
+    const [products, setProductos] = useState (null);
 
     const {idItem} = useParams();
     
@@ -15,7 +15,7 @@ const ItemDetailContainer = () => {
   
     return (
     <div>
-        <ItemDetail {...producto}/>
+        <ItemDetail {...products}/>
     </div>
   )
 

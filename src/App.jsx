@@ -9,21 +9,24 @@ import Hooks from "./components/Hooks/Hooks";
 // 10/04 - Routing y navega
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetail from "./components/ItemDetail/ItemDetail";
-
+import { CarritoProvider } from "./components/Context/CarritoContext";
 
 function App() {
   return (
-  <>
-    <BrowserRouter>
-    <NavBar/>
-    <Routes>
-      <Route path="/" element={ <ItemListContainer/> } />
-      <Route path="/categoria/:idCategoria" element={<ItemListContainer/>}/>
-      <Route path="/item/:idItem" element={<ItemDetail/>} />
-    </Routes>
-    </BrowserRouter>
- 
-  </>
+    <>
+      <BrowserRouter>
+        <CarritoProvider>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/categoria/:idCategoria" element={<ItemListContainer />} />
+            <Route path="/item/:idItem" element={<ItemDetailContainer />} />
+            <Route path="*" element={<h2>Sitio en construcción</h2>} />
+          </Routes>
+        </CarritoProvider>
+      </BrowserRouter>
+
+    </>
 
 
 

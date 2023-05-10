@@ -1,7 +1,7 @@
 
 import './ItemListContainer.css'
 import { useState, useEffect } from 'react'
-import { getProducts, getProductoPorCategoria } from '../../asyncmock'
+import { getProducts, getProductosPorCategoria } from '../../asyncmock'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
 
@@ -12,19 +12,19 @@ const ItemListContainer = () => {
 
   useEffect (() =>{
 
-    const funcionProductos = idCategoria ? getProductoPorCategoria : getProducts;
+    const funcionProductos = idCategoria ? getProductosPorCategoria : getProducts;
 
     funcionProductos(idCategoria)
-    .then(response => setProducts (response))
+    .then(res => setProducts (res))
     .catch(error => console.error (error))
   },[idCategoria])
 
 
   return (
-    <div>
+    <>
       <h2 style={{textAlign:"center"}}> Productos</h2>
       <ItemList products={products}/>
-</div>
+    </>
   )
 }
 
