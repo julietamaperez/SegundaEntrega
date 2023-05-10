@@ -10,6 +10,7 @@ import Hooks from "./components/Hooks/Hooks";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetail from "./components/ItemDetail/ItemDetail";
 import { CarritoProvider } from "./components/Context/CarritoContext";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<ItemListContainer />} />
             <Route path="/categoria/:idCategoria" element={<ItemListContainer />} />
             <Route path="/item/:idItem" element={<ItemDetailContainer />} />
+            <Route path= "/cart"  element={<Cart/>} />
             <Route path="*" element={<h2>Sitio en construcción</h2>} />
           </Routes>
         </CarritoProvider>
